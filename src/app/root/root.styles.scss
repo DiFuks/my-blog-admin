@@ -1,0 +1,12 @@
+.login-dropdown {
+  &::after {
+    display: none;
+  }
+
+  &__menu {
+    left: unset!important;
+    transform: none!important;
+    right: 5px!important;
+    top: 20px!important;
+  }
+}

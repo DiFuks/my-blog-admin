@@ -1,1 +1,40 @@
-<p>Login page</p>
+<div class="app flex-row align-items-center">
+  <div class="app-body">
+    <main class="main d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <div class="card-group">
+              <div class="card p-4">
+                <div class="card-body">
+                  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                    <h1>Login</h1>
+                    <p class="text-muted">Sign In to your account</p>
+                    <ngb-alert *ngIf="error" (close)="onCloseError()" type="danger">Login failed</ngb-alert>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-user"></i></span>
+                      </div>
+                      <input name="login" ngModel type="text" class="form-control" placeholder="Login" autocomplete="username" required>
+                    </div>
+                    <div class="input-group mb-4">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-lock"></i></span>
+                      </div>
+                      <input name="password" ngModel type="password" class="form-control" placeholder="Password" autocomplete="current-password" required>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <button type="submit" class="btn btn-primary px-4">Login</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

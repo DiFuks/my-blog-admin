@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '@app/post/post.service';
-import { Post } from '@app/post/interfaces/post';
+import { IPost } from '@app/post/interfaces/post';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.less']
 })
 export class PostComponent implements OnInit {
-  posts: Array<Post>;
+  posts: Array<IPost>;
 
   constructor(
     private postService: PostService,
@@ -20,7 +19,7 @@ export class PostComponent implements OnInit {
 
   showPosts() {
     this.postService.getPosts()
-      .subscribe((posts: Array<Post>) => {
+      .subscribe((posts: Array<IPost>) => {
         this.posts = posts;
       });
   }

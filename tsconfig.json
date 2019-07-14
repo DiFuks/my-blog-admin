@@ -13,7 +13,9 @@
     "target": "es2015",
     "types": [],
     "paths": {
-      "@app/*": ["src/app/*"]
+      "@app/*": ["src/app/*"],
+      "@environments/*": ["src/environments/*"],
+      "@assets/*": ["src/assets/*"]
     },
     "typeRoots": [
       "node_modules/@types"

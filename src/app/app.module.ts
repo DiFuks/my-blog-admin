@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { APIInterceptor } from '@app/common/http.interceptor';
 import { API_URL } from '@app/common/token.exports';
-import { environment } from '../environments/environment';
+import { environment } from '@environments/environment';
 
 @NgModule({
   declarations: [
