@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from '@app/login/login.component';
-import { LoginService } from '@app/login/login.service';
+import { AuthService } from '@app/auth/auth.service';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { LoginService } from '@app/login/login.service';
     LoginComponent,
   ],
   providers: [
-    LoginService,
+    AuthService,
   ],
   exports: [
     LoginComponent,

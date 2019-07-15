@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { APIInterceptor } from '@app/common/http.interceptor';
 import { API_URL } from '@app/common/token.exports';
 import { environment } from '@environments/environment';
+import { AuthModule } from '@app/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { environment } from '@environments/environment';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AuthModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

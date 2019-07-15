@@ -8,7 +8,7 @@ import { ILoginResponse } from '@app/login/interfaces/login.response';
 import { LocalStorageKeys } from '@app/common/local-storage-keys.enum';
 
 @Injectable()
-export class LoginService {
+export class AuthService {
   constructor(
     private http: HttpClient,
   ) {}

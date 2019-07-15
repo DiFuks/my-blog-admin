@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { LoginService } from '@app/login/login.service';
+import { Router } from '@angular/router';
+
+import { AuthService } from '@app/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,13 @@ import { LoginService } from '@app/login/login.service';
 })
 export class RootComponent {
   constructor(
-    private loginService: LoginService
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
   onLogoutClick() {
-    this.loginService.logout();
+    this.authService.logout();
+
+    this.router.navigate(['/login']);
   }
 }
