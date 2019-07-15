@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '@app/auth/auth.service';
+import { RoutesList } from '@app/common/routes-list.enum';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,16 @@ import { AuthService } from '@app/auth/auth.service';
   styleUrls: ['./root.styles.scss']
 })
 export class RootComponent {
+  navItems = [{
+    name: 'Dasboard',
+    url: '/dashboard',
+    icon: 'icon-speedometer'
+  }, {
+    name: 'Posts',
+    url: '/posts',
+    icon: 'icon-book-open'
+  }];
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -17,6 +28,6 @@ export class RootComponent {
   onLogoutClick() {
     this.authService.logout();
 
-    this.router.navigate(['/login']);
+    this.router.navigate([RoutesList.LOGIN]);
   }
 }

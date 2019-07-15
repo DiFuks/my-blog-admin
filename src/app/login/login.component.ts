@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '@app/auth/auth.service';
 import { ILoginRequest } from '@app/login/interfaces/login.request';
+import { RoutesList } from '@app/common/routes-list.enum';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent {
   ) {}
 
   private navigateToRoot() {
-    this.router.navigate(['/']);
+    this.router.navigate([RoutesList.DASHBOARD]);
   }
 
   onSubmit(f: NgForm) {

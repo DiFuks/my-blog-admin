@@ -4,7 +4,7 @@ import { AppHeaderModule, AppSidebarModule } from '@coreui/angular';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { RootComponent } from './root.component';
-import { RootRoutingModule } from '@app/root/root-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,10 +12,10 @@ import { RootRoutingModule } from '@app/root/root-routing.module';
   ],
   imports: [
     CommonModule,
-    RootRoutingModule,
     AppHeaderModule,
     AppSidebarModule,
     NgbDropdownModule,
+    RouterModule,
   ],
   exports: [
     RootComponent

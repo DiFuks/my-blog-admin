@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 
 import { AuthService } from './auth.service';
+import { RoutesList } from '@app/common/routes-list.enum';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
@@ -12,7 +13,7 @@ export class AuthGuardService implements CanActivate {
 
   async canActivate(): Promise<boolean> {
     if (!this.authService.isLoggedIn()) {
-      await this.router.navigate(['/login']);
+      await this.router.navigate([RoutesList.LOGIN]);
 
       return false;
     }

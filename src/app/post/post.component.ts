@@ -3,7 +3,6 @@ import { PostService } from '@app/post/post.service';
 import { IPost } from '@app/post/interfaces/post';
 
 @Component({
-  selector: 'app-post',
   templateUrl: './post.component.html',
 })
 export class PostComponent implements OnInit {

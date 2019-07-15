@@ -8,6 +8,8 @@ import { APIInterceptor } from '@app/common/http.interceptor';
 import { API_URL } from '@app/common/token.exports';
 import { environment } from '@environments/environment';
 import { AuthModule } from '@app/auth/auth.module';
+import { PostModule } from '@app/post/post.module';
+import { DashboardModule } from '@app/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { AuthModule } from '@app/auth/auth.module';
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
+    PostModule,
+    DashboardModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
