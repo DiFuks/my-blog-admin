@@ -1,6 +1,6 @@
 <div class="app">
   <app-header
-    [navbarBrandRouterLink]="['/']"
+    [navbarBrandRouterLink]="['/dashbord']"
     [navbarBrandFull]="{ src: 'assets/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
     [navbarBrandMinimized]="{ src: 'assets/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo' }"
     [fixed]="true"
@@ -20,14 +20,19 @@
     </ul>
   </app-header>
   <div class="app-body">
-    <app-sidebar fixed display="lg">
+    <app-sidebar [fixed]="true" display="lg">
       <app-sidebar-form></app-sidebar-form>
       <app-sidebar-nav [navItems]="navItems"></app-sidebar-nav>
       <app-sidebar-footer></app-sidebar-footer>
       <app-sidebar-minimizer></app-sidebar-minimizer>
     </app-sidebar>
+    <div class="main pt-2">
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
-  <div class="main">
-    <router-outlet></router-outlet>
-  </div>
+  <app-footer>
+    <span>Dmitry Fuks Blog Admin</span>
+  </app-footer>
 </div>

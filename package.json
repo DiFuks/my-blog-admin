@@ -30,6 +30,7 @@
     "@coreui/coreui": "^2.1.12",
     "@coreui/icons": "^0.3.0",
     "@ng-bootstrap/ng-bootstrap": "^5.0.0",
+    "@swimlane/ngx-datatable": "^15.0.2",
     "codelyzer": "^5.0.0",
     "font-awesome": "^4.7.0",
     "protractor": "~5.4.0",

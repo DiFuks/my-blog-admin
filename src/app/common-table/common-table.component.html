@@ -1,0 +1,25 @@
+<div>
+  <ngx-datatable
+    class="material fullscreen"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="0"
+    [rowHeight]="50"
+    [rows]="rows"
+    [columns]="columns"
+  >
+
+    <ngx-datatable-column *ngFor="let column of columns" [name]="column.name"></ngx-datatable-column>
+    <ngx-datatable-column name="Actions">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <div class="btn-group btn-group-toggle">
+            <button class="btn btn-primary btn-sm" (click)="onEdit(row.id)"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

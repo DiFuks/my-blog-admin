@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppHeaderModule, AppSidebarModule } from '@coreui/angular';
+import { AppHeaderModule, AppSidebarModule, AppFooterModule } from '@coreui/angular';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 import { RootComponent } from './root.component';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
     AppSidebarModule,
     NgbDropdownModule,
     RouterModule,
+    AppFooterModule,
   ],
   exports: [
     RootComponent

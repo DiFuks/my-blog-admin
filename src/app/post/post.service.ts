@@ -8,6 +8,6 @@ export class PostService {
   ) {}
 
   getPosts() {
-    return this.http.get('public/post/shortList');
+    return this.http.get('admin/post/list');
   }
 }

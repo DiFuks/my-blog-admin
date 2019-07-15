@@ -10,6 +10,7 @@ import { environment } from '@environments/environment';
 import { AuthModule } from '@app/auth/auth.module';
 import { PostModule } from '@app/post/post.module';
 import { DashboardModule } from '@app/dashboard/dashboard.module';
+import { AppBreadcrumbModule } from '@coreui/angular';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DashboardModule } from '@app/dashboard/dashboard.module';
     AuthModule,
     PostModule,
     DashboardModule,
+    AppBreadcrumbModule.forRoot(),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

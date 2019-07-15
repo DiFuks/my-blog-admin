@@ -1,11 +1,19 @@
-export interface IPost {
-  url: string;
+import { PostContent } from '@app/post/interfaces/post-content';
+
+export class IPost {
+  id: string;
 
   title: string;
 
   description: string;
 
+  content: PostContent;
+
+  url: string;
+
   category: string;
 
-  date: Date;
+  createdAt: Date;
+
+  updatedAt: Date;
 }

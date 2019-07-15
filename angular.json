@@ -31,7 +31,10 @@
               "node_modules/simple-line-icons/css/simple-line-icons.css",
               "node_modules/@coreui/icons/css/coreui-icons.min.css",
               "node_modules/@coreui/coreui/dist/css/coreui.min.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/@swimlane/ngx-datatable/release/index.css",
+              "node_modules/@swimlane/ngx-datatable/release/themes/material.css",
+              "node_modules/@swimlane/ngx-datatable/release/assets/icons.css"
             ],
             "scripts": []
           },
