@@ -12,11 +12,11 @@ import { RoutesList } from '@app/common/routes-list.enum';
 export class RootComponent {
   navItems = [{
     name: 'Dasboard',
-    url: '/dashboard',
+    url: `/${RoutesList.DASHBOARD}`,
     icon: 'icon-speedometer'
   }, {
     name: 'Posts',
-    url: '/posts',
+    url: `/${RoutesList.POSTS}`,
     icon: 'icon-book-open'
   }];
 

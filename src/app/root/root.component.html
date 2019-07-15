@@ -10,11 +10,11 @@
   >
     <ul class="nav navbar-nav ml-auto">
       <li class="dropdown nav-item" ngbDropdown placement="bottom right">
-        <a class="nav-link login-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle  >
+        <button class="nav-link login-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle  >
           Admin
-        </a>
+        </button>
         <div class="dropdown-menu dropdown-menu-right login-dropdown__menu" ngbDropdownMenu aria-labelledby="simple-dropdown">
-          <a class="dropdown-item" href="#" (click)="onLogoutClick()"><i class="fa fa-lock"></i> Logout</a>
+          <button class="dropdown-item" (click)="onLogoutClick()"><i class="fa fa-lock"></i> Logout</button>
         </div>
       </li>
     </ul>
