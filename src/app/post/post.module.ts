@@ -6,6 +6,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonTableModule } from '@app/common-table/common-table.module';
 import { CommonModalModule } from '@app/common-modal/common-modal.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { CommonModalModule } from '@app/common-modal/common-modal.module';
     NgbButtonsModule,
     CommonTableModule,
     CommonModalModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class PostModule { }

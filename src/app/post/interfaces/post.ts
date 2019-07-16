@@ -1,4 +1,5 @@
 import { PostContent } from '@app/post/interfaces/post-content';
+import { ICategory } from '@app/category/interfaces/category';
 
 export class IPost {
   id: string;
@@ -11,7 +12,7 @@ export class IPost {
 
   url: string;
 
-  category: string;
+  category: ICategory | string;
 
   createdAt: Date;
 
