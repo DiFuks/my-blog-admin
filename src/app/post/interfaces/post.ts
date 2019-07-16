@@ -12,7 +12,7 @@ export class Post {
 
   url: string;
 
-  category: Category | string = new Category();
+  category: Category = new Category();
 
   createdAt: string;
 
