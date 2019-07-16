@@ -1,0 +1,14 @@
+<app-common-modal title="Category edit">
+  <form *ngIf="data">
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" id="title" name="title" [(ngModel)]="data.title">
+      </div>
+      <div class="form-group">
+        <label for="url">Url</label>
+        <input class="form-control" id="url" placeholder="Url" name="Url" [(ngModel)]="data.url">
+      </div>
+    </form>
+  </form>
+</app-common-modal>

@@ -18,6 +18,10 @@ export class RootComponent {
     name: 'Posts',
     url: `/${RoutesList.POSTS}`,
     icon: 'icon-book-open'
+  }, {
+    name: 'Categories',
+    url: `/${RoutesList.CATEGORIES}`,
+    icon: 'icon-chart'
   }];
 
   constructor(

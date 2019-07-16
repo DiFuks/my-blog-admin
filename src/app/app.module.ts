@@ -11,6 +11,7 @@ import { AuthModule } from '@app/auth/auth.module';
 import { PostModule } from '@app/post/post.module';
 import { DashboardModule } from '@app/dashboard/dashboard.module';
 import { AppBreadcrumbModule } from '@coreui/angular';
+import { CategoryModule } from '@app/category/category.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AppBreadcrumbModule } from '@coreui/angular';
     HttpClientModule,
     AuthModule,
     PostModule,
+    CategoryModule,
     DashboardModule,
     AppBreadcrumbModule.forRoot(),
   ],

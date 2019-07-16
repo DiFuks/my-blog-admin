@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 
@@ -29,7 +28,6 @@ import { CategoryModule } from '@app/category/category.module';
   ],
   imports: [
     CommonModule,
-    NgxDatatableModule,
     NgbButtonsModule,
     CommonTableModule,
     CommonModalModule,

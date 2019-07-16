@@ -9,7 +9,7 @@ export class Category {
 
   url: string;
 
-  createdAt: Date;
+  createdAt: string;
 
-  updatedAt: Date;
+  updatedAt: string;
 }

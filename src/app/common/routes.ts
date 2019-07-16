@@ -7,6 +7,7 @@ import { RootComponent } from '@app/root/root.component';
 import { AuthGuardService } from '@app/auth/auth-guard.service';
 import { PostComponent } from '@app/post/post.component';
 import { DashboardComponent } from '@app/dashboard/dashboard.component';
+import { CategoryComponent } from '@app/category/category.component';
 
 export const routes: Routes = [{
     path: RoutesList.LOGIN,
@@ -19,6 +20,9 @@ export const routes: Routes = [{
     children: [{
       path: RoutesList.POSTS,
       component: PostComponent,
+    }, {
+      path: RoutesList.CATEGORIES,
+      component: CategoryComponent,
     }, {
       path: RoutesList.DASHBOARD,
       component: DashboardComponent,
