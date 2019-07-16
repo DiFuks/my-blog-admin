@@ -17,4 +17,8 @@ export class PostService {
   update(post: IPost): Observable<object> {
     return this.http.put('admin/post/update', post);
   }
+
+  delete(id: string): Observable<object> {
+    return this.http.delete(`admin/post/delete?id=${id}`);
+  }
 }

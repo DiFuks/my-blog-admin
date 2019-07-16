@@ -1,18 +1,18 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TableColumn } from '@swimlane/ngx-datatable';
 import { findLast, cloneDeep } from 'lodash-es';
 
 import { PostService } from '@app/post/post.service';
 import { IPost } from '@app/post/interfaces/post';
 import { CommonModalService } from '@app/common-modal/common-modal.service';
-import { Modals } from '@app/common/modals.enum';
-import { HttpErrorResponse } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
+import { PostModalComponent } from '@app/post/post-modal.component';
+import { tap } from 'rxjs/operators';
+import { DeleteConfirmComponent } from '@app/delete-confirm/delete-confirm.component';
 
 @Component({
   templateUrl: './post.component.html',
 })
-export class PostComponent implements OnInit, OnDestroy {
+export class PostComponent implements OnInit {
   posts: Array<IPost>;
 
   columns: TableColumn[] = [
@@ -24,46 +24,37 @@ export class PostComponent implements OnInit, OnDestroy {
 
   currentPost: IPost;
 
-  currentDeleteId: string;
-
-  deleteModalName = Modals.POST_DELETE;
-
-  editModalName = Modals.POST_EDIT;
-
   constructor(
     private postService: PostService,
     private commonModalService: CommonModalService,
-    private toastr: ToastrService,
   ) {}
 
   ngOnInit() {
     this.showPosts();
   }
 
-  ngOnDestroy() {
-    this.commonModalService.closeModal(this.editModalName);
-    this.commonModalService.closeModal(this.deleteModalName);
-  }
-
   openEditModal(id: string) {
-    this.commonModalService.openModal(this.editModalName);
-
     this.currentPost = cloneDeep(findLast(this.posts, { id }));
+
+    this.commonModalService.openModal<IPost>(
+      PostModalComponent,
+      this.currentPost,
+      this.postService.update(this.currentPost).pipe(
+        tap(() => this.showPosts())
+      ),
+    );
   }
 
   openDeleteModal(id: string) {
-    this.commonModalService.openModal(this.deleteModalName);
+    this.currentPost = cloneDeep(findLast(this.posts, { id }));
 
-    this.currentDeleteId = id;
-  }
-
-  save() {
-    this.postService.update(this.currentPost).subscribe(() => {
-      this.commonModalService.closeModal(this.editModalName);
-      this.showPosts();
-    }, (error: HttpErrorResponse) => {
-      this.toastr.error(error.error.message);
-    });
+    this.commonModalService.openModal<IPost>(
+      DeleteConfirmComponent,
+      null,
+      this.postService.delete(this.currentPost.id).pipe(
+        tap(() => this.showPosts())
+      ),
+    );
   }
 
   showPosts() {

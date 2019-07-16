@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 import { PostComponent } from './post.component';
 import { PostService } from '@app/post/post.service';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonTableModule } from '@app/common-table/common-table.module';
 import { CommonModalModule } from '@app/common-modal/common-modal.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { PostModalComponent } from '@app/post/post-modal.component';
+import { DeleteConfirmModule } from '@app/delete-confirm/delete-confirm.module';
+import { DeleteConfirmComponent } from '@app/delete-confirm/delete-confirm.component';
 
 @NgModule({
   declarations: [
-    PostComponent
+    PostComponent,
+    PostModalComponent,
+  ],
+  entryComponents: [
+    PostModalComponent,
+    DeleteConfirmComponent
   ],
   providers: [
     PostService
@@ -23,6 +32,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModalModule,
     ReactiveFormsModule,
     FormsModule,
+    DeleteConfirmModule,
   ]
 })
 export class PostModule { }

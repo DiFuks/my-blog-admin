@@ -1,25 +1,37 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-
-import { Modals } from '@app/common/modals.enum';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class CommonModalService {
-  public popupIsShown: Subject<{name: string, isOpen: boolean}> = new Subject<null>();
+  activeModalRef: BehaviorSubject<NgbModalRef> = new BehaviorSubject(null);
 
-  constructor() {}
+  save: Observable<object>;
 
-  openModal(modalName: Modals) {
-    this.popupIsShown.next({
-      name: modalName,
-      isOpen: true,
-    });
+  constructor(
+    private modal: NgbModal,
+    private toastr: ToastrService,
+  ) {}
+
+  openModal<T>(content: any, data: T, save: Observable<object>) {
+    this.save = save;
+
+    const modal = this.modal.open(content);
+
+    modal.componentInstance.data = data;
+
+    this.activeModalRef.next(modal);
   }
 
-  closeModal(modalName: Modals) {
-    this.popupIsShown.next({
-      name: modalName,
-      isOpen: false,
+  onSave() {
+    this.save.subscribe(() => {
+      this.toastr.success('Save successful');
+
+      this.activeModalRef.getValue().close();
+    }, (error: HttpErrorResponse) => {
+      this.toastr.error(error.error.message);
     });
   }
 }

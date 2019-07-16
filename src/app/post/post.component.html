@@ -4,24 +4,3 @@
   (edit)="openEditModal($event)"
   (delete)="openDeleteModal($event)"
 ></app-common-table>
-<app-common-modal [name]="editModalName" (save)="save()" title="Post edit">
-  <form *ngIf="currentPost">
-    <form>
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input class="form-control" id="title" name="title" [(ngModel)]="currentPost.title">
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input class="form-control" id="description" name="description" [(ngModel)]="currentPost.description">
-      </div>
-      <div class="form-group">
-        <label for="url">Url</label>
-        <input class="form-control" id="url" placeholder="Url" name="Url" [(ngModel)]="currentPost.url">
-      </div>
-    </form>
-  </form>
-</app-common-modal>
-<app-common-modal [name]="deleteModalName" title="Post delete">
-  {{currentDeleteId}}
-</app-common-modal>
