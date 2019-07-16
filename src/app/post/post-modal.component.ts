@@ -1,9 +1,68 @@
 import { Component, Input } from '@angular/core';
-import { IPost } from '@app/post/interfaces/post';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+import { Post } from '@app/post/interfaces/post';
+import { PostTypes } from '@app/post/enums/post-types';
+import { Category } from '@app/category/interfaces/category';
+import { CategoryService } from '@app/category/category.service';
 
 @Component({
   templateUrl: './post-modal.component.html',
 })
 export class PostModalComponent {
-  @Input() data: IPost;
+  @Input() data: Post;
+
+  postTypes = Object.values(PostTypes);
+
+  Editor = ClassicEditor;
+
+  categories: Category[];
+
+  supportedLanguages = {
+    [PostTypes.BASIC]: 'plaintext',
+    [PostTypes.JAVASCRIPT]: 'javascript',
+  };
+
+  constructor(
+    private categoryService: CategoryService,
+  ) {
+    categoryService.getList().subscribe((categories: Category[]) => {
+      this.categories = categories;
+    });
+  }
+
+  addContent() {
+    this.data.content.push({
+      type: PostTypes.TEXT,
+      content: '',
+    });
+  }
+
+  upContent(index: number) {
+    if (index === 0) {
+      return;
+    }
+
+    const content = this.data.content[index];
+
+    this.data.content.splice(index, 1);
+
+    this.data.content.splice(index - 1, 0, content);
+  }
+
+  downContent(index: number) {
+    if (index === this.data.content.length - 1) {
+      return;
+    }
+
+    const content = this.data.content[index];
+
+    this.data.content.splice(index, 1);
+
+    this.data.content.splice(index + 1, 0, content);
+  }
+
+  removeContent(index: number) {
+    this.data.content.splice(index, 1);
+  }
 }

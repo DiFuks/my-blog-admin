@@ -18,7 +18,11 @@ export class CommonModalService {
   openModal<T>(content: any, data: T, save: Observable<object>) {
     this.save = save;
 
-    const modal = this.modal.open(content);
+    const modal = this.modal.open(content, {
+      size: 'lg',
+      backdrop: 'static',
+      windowClass: 'common-modal'
+    });
 
     modal.componentInstance.data = data;
 
@@ -31,7 +35,7 @@ export class CommonModalService {
 
       this.activeModalRef.getValue().close();
     }, (error: HttpErrorResponse) => {
-      this.toastr.error(error.error.message);
+      this.toastr.error(error.error.message || 'Unknown error');
     });
   }
 }

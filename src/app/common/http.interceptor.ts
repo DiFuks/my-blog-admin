@@ -1,8 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { API_URL } from '@app/common/token.exports';
 import { AuthService } from '@app/auth/auth.service';
+import { LocalStorageKeys } from '@app/common/local-storage-keys.enum';
 
 @Injectable()
 export class APIInterceptor implements HttpInterceptor {
@@ -16,6 +18,7 @@ export class APIInterceptor implements HttpInterceptor {
       url: `${this.apiUrl}${req.url}`,
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.authService.getSession()}`,
+        'x-session-token': localStorage.getItem(LocalStorageKeys.USER_SESSION_TOKEN),
       })
     });
 

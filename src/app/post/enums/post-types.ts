@@ -1,4 +1,5 @@
-export const enum PostTypes {
+export enum PostTypes {
   TEXT = 'text',
   BASIC = 'basic',
+  JAVASCRIPT = 'javascript',
 }

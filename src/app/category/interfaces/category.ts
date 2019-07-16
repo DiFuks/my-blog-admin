@@ -1,11 +1,11 @@
-import { IPost } from '@app/post/interfaces/post';
+import { Post } from '@app/post/interfaces/post';
 
-export interface ICategory {
+export class Category {
   id: string;
 
   title: string;
 
-  posts?: Array<IPost>;
+  posts?: Array<Post>;
 
   url: string;
 

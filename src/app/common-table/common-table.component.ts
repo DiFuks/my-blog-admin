@@ -14,7 +14,7 @@ export class CommonTableComponent {
 
   @Output() delete: EventEmitter<string> = new EventEmitter();
 
-  onEdit(id: string) {
+  onEdit(id?: string) {
     this.edit.emit(id);
   }
 

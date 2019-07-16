@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { IPost } from '@app/post/interfaces/post';
+import { Post } from '@app/post/interfaces/post';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -14,8 +14,8 @@ export class PostService {
     return this.http.get('admin/post/list');
   }
 
-  update(post: IPost): Observable<object> {
-    return this.http.put('admin/post/update', post);
+  save(post: Post): Observable<object> {
+    return this.http.put('admin/post/save', post);
   }
 
   delete(id: string): Observable<object> {

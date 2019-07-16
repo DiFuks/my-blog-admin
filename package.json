@@ -26,20 +26,27 @@
     "@angular/cli": "~8.1.0",
     "@angular/compiler-cli": "~8.1.0",
     "@angular/language-service": "~8.1.0",
+    "@ckeditor/ckeditor5-angular": "^1.1.0",
+    "@ckeditor/ckeditor5-build-classic": "^12.3.1",
     "@coreui/angular": "^2.5.2",
     "@coreui/coreui": "^2.1.12",
     "@coreui/icons": "^0.3.0",
     "@ng-bootstrap/ng-bootstrap": "^5.0.0",
     "@swimlane/ngx-datatable": "^15.0.2",
     "@types/lodash-es": "^4.17.3",
+    "@types/moment": "^2.13.0",
+    "@types/uuid": "^3.4.5",
     "codelyzer": "^5.0.0",
     "font-awesome": "^4.7.0",
     "lodash-es": "^4.17.14",
+    "moment": "^2.24.0",
+    "ngx-monaco-editor": "^7.0.0",
     "ngx-toastr": "^10.0.4",
     "protractor": "~5.4.0",
     "simple-line-icons": "^2.4.1",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.4.3",
+    "uuid": "^3.3.2"
   }
 }

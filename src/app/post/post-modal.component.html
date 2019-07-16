@@ -7,11 +7,60 @@
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input class="form-control" id="description" name="description" [(ngModel)]="data.description">
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="data.description"></textarea>
       </div>
       <div class="form-group">
         <label for="url">Url</label>
         <input class="form-control" id="url" placeholder="Url" name="Url" [(ngModel)]="data.url">
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" class="form-control" [(ngModel)]="data.category.id" name="category">
+          <option *ngFor="let category of categories" [ngValue]="category.id">{{category.title}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Content</label>
+        <div *ngFor="let content of data.content; let i = index;" >
+          <div class="form-group">
+            <label [for]="'type' + i">Type</label>
+            <select [id]="'type' + i" class="form-control" [(ngModel)]="content.type" [name]="'type' + i">
+              <option *ngFor="let postType of postTypes" [ngValue]="postType">{{postType}}</option>
+            </select>
+          </div>
+          <div class="form-group" style="position: relative">
+            <label [for]="'content' + i">Content text</label>
+            <ckeditor
+              *ngIf="content.type === 'text'"
+              [editor]="Editor" [name]="'content' + i"
+              [(ngModel)]="content.content"
+            ></ckeditor>
+            <ngx-monaco-editor
+              *ngIf="content.type !== 'text'"
+              [name]="'content' + i"
+              [options]="{theme: 'vs-dark', language: supportedLanguages[content.type]}"
+              [(ngModel)]="content.content"
+            ></ngx-monaco-editor>
+            <div class="form-group text-right" style="position: absolute; top: 35px; right: 5px;">
+              <button
+                [ngClass]="i === 0 && 'disabled'"
+                class="btn btn-primary btn-sm mr-1"
+                (click)="upContent(i)"
+              >
+                <i class="fa fa-arrow-up"></i>
+              </button>
+              <button
+                [ngClass]="i === data.content.length - 1 && 'disabled'"
+                class="btn btn-primary btn-sm mr-1"
+                (click)="downContent(i)"
+              ><i class="fa fa-arrow-down"></i></button>
+              <button class="btn btn-danger btn-sm" (click)="removeContent(i)"><i class="fa fa-close"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <button class="btn btn-primary btn-sm" (click)="addContent()"><i class="fa fa-plus"></i></button>
+        </div>
       </div>
     </form>
   </form>
