@@ -1,0 +1,20 @@
+version: '2.4'
+
+services:
+  admin-nodejs:
+    container_name: admin-nodejs
+    image: node:10.13.0-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+  admin-nginx:
+    container_name: admin-nginx
+    image: nginx:1.15-alpine
+    volumes:
+      - ./dist:/var/www/public
+      - ./docker/nginx:/etc/nginx/conf.d
+
+networks:
+  default:
+    external:
+      name: my-blog
