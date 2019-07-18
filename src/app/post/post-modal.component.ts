@@ -19,8 +19,14 @@ export class PostModalComponent {
   categories: Category[];
 
   supportedLanguages = {
+    ...PostTypes,
     [PostTypes.BASIC]: 'plaintext',
-    [PostTypes.JAVASCRIPT]: 'javascript',
+    [PostTypes.ONE_C]: 'plaintext',
+    [PostTypes.PROLOG]: 'plaintext',
+    [PostTypes.NGINX]: 'plaintext',
+    [PostTypes.DART]: 'plaintext',
+    [PostTypes.STYLUS]: 'less',
+    [PostTypes.CS]: 'csharp',
   };
 
   constructor(
