@@ -19,6 +19,6 @@ export class CategoryService {
   }
 
   delete(id: string): Observable<object> {
-    return this.http.delete(`admin/category/category?id=${id}`);
+    return this.http.delete(`admin/category/delete?id=${id}`);
   }
 }
