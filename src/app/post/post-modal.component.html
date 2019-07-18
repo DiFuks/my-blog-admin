@@ -38,7 +38,7 @@
             <ngx-monaco-editor
               *ngIf="content.type !== 'text'"
               [name]="'content' + i"
-              [options]="{theme: 'vs-dark', language: supportedLanguages[content.type]}"
+              [options]="{theme: 'vs-dark', language: getSupportedLanguage(content.type)}"
               [(ngModel)]="content.content"
             ></ngx-monaco-editor>
             <div class="form-group text-right" style="position: absolute; top: 35px; right: 5px;">

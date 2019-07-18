@@ -18,15 +18,14 @@ export class PostModalComponent {
 
   categories: Category[];
 
-  supportedLanguages = {
-    ...PostTypes,
+  hljsToMonacoMap = {
+    [PostTypes.STYLUS]: 'less',
+    [PostTypes.CS]: 'csharp',
     [PostTypes.BASIC]: 'plaintext',
     [PostTypes.ONE_C]: 'plaintext',
     [PostTypes.PROLOG]: 'plaintext',
     [PostTypes.NGINX]: 'plaintext',
     [PostTypes.DART]: 'plaintext',
-    [PostTypes.STYLUS]: 'less',
-    [PostTypes.CS]: 'csharp',
   };
 
   constructor(
@@ -70,5 +69,20 @@ export class PostModalComponent {
 
   removeContent(index: number) {
     this.data.content.splice(index, 1);
+  }
+
+  getSupportedLanguage(postType: PostTypes) {
+    let monacoSupportedLanguages = {};
+
+    Object.values(PostTypes).forEach(item => {
+      monacoSupportedLanguages[item] = item;
+    });
+
+    monacoSupportedLanguages = {
+      ...monacoSupportedLanguages,
+      ...this.hljsToMonacoMap,
+    };
+
+    return monacoSupportedLanguages[postType];
   }
 }
