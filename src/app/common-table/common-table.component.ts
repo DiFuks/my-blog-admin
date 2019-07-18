@@ -10,9 +10,13 @@ export class CommonTableComponent {
 
   @Input() columns: TableColumn[];
 
+  @Input() isActiveChange: boolean;
+
   @Output() edit: EventEmitter<string> = new EventEmitter();
 
   @Output() delete: EventEmitter<string> = new EventEmitter();
+
+  @Output() changeActive: EventEmitter<string> = new EventEmitter();
 
   onEdit(id?: string) {
     this.edit.emit(id);
@@ -20,5 +24,9 @@ export class CommonTableComponent {
 
   onDelete(id: string) {
     this.delete.emit(id);
+  }
+
+  onChangeActive(id: string) {
+    this.changeActive.emit(id);
   }
 }

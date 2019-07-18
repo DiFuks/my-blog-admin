@@ -21,4 +21,11 @@ export class PostService {
   delete(id: string): Observable<object> {
     return this.http.delete(`admin/post/delete?id=${id}`);
   }
+
+  changeActive(id: string, isActive: boolean): Observable<object> {
+    return this.http.post('admin/post/changeActive', {
+      id,
+      isActive,
+    });
+  }
 }

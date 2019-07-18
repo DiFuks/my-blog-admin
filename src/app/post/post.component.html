@@ -1,6 +1,8 @@
 <app-common-table
   [columns]="columns"
   [rows]="posts"
+  [isActiveChange]="true"
   (edit)="openEditModal($event)"
   (delete)="openDeleteModal($event)"
+  (changeActive)="changeActive($event)"
 ></app-common-table>

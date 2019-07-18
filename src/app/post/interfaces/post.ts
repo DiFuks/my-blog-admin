@@ -12,6 +12,8 @@ export class Post {
 
   url: string;
 
+  isActive: boolean;
+
   category: Category = new Category();
 
   createdAt: string;

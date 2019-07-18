@@ -9,15 +9,22 @@
     [columns]="columns"
   >
 
-    <ngx-datatable-column *ngFor="let column of columns" [prop]="column.prop" [name]="column.name"></ngx-datatable-column>
+    <ngx-datatable-column *ngFor="let column of columns" [prop]="column.prop" [name]="column.name">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <span *ngIf="!!value === false">No</span>
+        <span *ngIf="value === true">Yes</span>
+        <span *ngIf="value !== false && value !== true">{{value}}</span>
+      </ng-template>
+    </ngx-datatable-column>
     <ngx-datatable-column name="Actions">
       <ng-template
         ngx-datatable-cell-template
         let-row="row"
       >
         <div class="btn-group btn-group-toggle">
-            <button class="btn btn-primary btn-sm" (click)="onEdit(row.id)"><i class="fa fa-edit"></i></button>
-            <button class="btn btn-danger btn-sm" (click)="onDelete(row.id)"><i class="fa fa-close"></i></button>
+          <button class="btn btn-primary btn-sm" (click)="onEdit(row.id)"><i class="fa fa-edit"></i></button>
+          <button class="btn btn-secondary btn-sm" *ngIf="isActiveChange"  (click)="onChangeActive(row.id)"><i class="fa fa-eye"></i></button>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(row.id)"><i class="fa fa-close"></i></button>
         </div>
       </ng-template>
     </ngx-datatable-column>

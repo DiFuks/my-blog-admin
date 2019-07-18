@@ -3,6 +3,7 @@ import { TableColumn } from '@swimlane/ngx-datatable';
 import { findLast, cloneDeep } from 'lodash-es';
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 import { PostService } from '@app/post/post.service';
 import { Post } from '@app/post/interfaces/post';
@@ -18,7 +19,7 @@ export class PostComponent implements OnInit {
 
   columns: TableColumn[] = [
     { prop: 'title', name: 'Title' },
-    { prop: 'description', name: 'Description' },
+    { prop: 'isActive', name: 'Is Active' },
     { prop: 'url', name: 'Url' },
     { prop: 'category.title', name: 'Category title' },
     { prop: 'createdAt', name: 'Created' },
@@ -30,6 +31,7 @@ export class PostComponent implements OnInit {
   constructor(
     private postService: PostService,
     private commonModalService: CommonModalService,
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit() {
@@ -62,6 +64,16 @@ export class PostComponent implements OnInit {
         tap(() => this.showPosts())
       ),
     );
+  }
+
+  changeActive(id: string) {
+    const post = cloneDeep(findLast(this.posts, { id }));
+
+    this.postService.changeActive(post.id, !post.isActive).subscribe(() => {
+      this.showPosts();
+
+      this.toastr.success('Is active changed');
+    });
   }
 
   showPosts() {
