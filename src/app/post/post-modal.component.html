@@ -31,12 +31,12 @@
           <div class="form-group" style="position: relative">
             <label [for]="'content' + i">Content text</label>
             <ckeditor
-              *ngIf="content.type === 'text'"
+              *ngIf="content.type === 'text' || content.type === 'image'"
               [editor]="Editor" [name]="'content' + i"
               [(ngModel)]="content.content"
             ></ckeditor>
             <ngx-monaco-editor
-              *ngIf="content.type !== 'text'"
+              *ngIf="content.type !== 'text' && content.type !== 'image'"
               [name]="'content' + i"
               [options]="{theme: 'vs-dark', language: getSupportedLanguage(content.type)}"
               [(ngModel)]="content.content"

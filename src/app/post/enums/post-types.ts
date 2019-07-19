@@ -1,5 +1,6 @@
 export enum PostTypes {
   TEXT = 'text',
+  IMAGE = 'image',
   BASIC = 'basic',
   JAVASCRIPT = 'javascript',
   PASCAL = 'pascal',
