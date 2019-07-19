@@ -244,6 +244,11 @@
   resolved "https://registry.yarnpkg.com/@coreui/icons/-/icons-0.3.0.tgz#d5bece91b1442a9543593d1146bc8042b18489e3"
   integrity sha512-RbBi5K5hUA8LUI9mM/i1BTaLjlyoS6kHwKbxWsH62+/j9L9WF8gAiJUhrNjMt1br8TY9RLeolyQys0E9480fIg==
 
+"@jamespotz/ckeditor5-build-with-base64-adapter@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@jamespotz/ckeditor5-build-with-base64-adapter/-/ckeditor5-build-with-base64-adapter-1.0.0.tgz#0c160323b0caae79a21992645d44618153274524"
+  integrity sha512-iQoiAZtJX2WMdf2OpTwHo2PfSQwskN5MWSu0Ynj0ddhbaSz1afPG+LAlfr6h9Fe0ckqoNbqja0wypR6RpcujxA==
+
 "@ng-bootstrap/ng-bootstrap@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-5.0.0.tgz#93abf17b9d10680ca89b9dae3d50113df6f0fa3e"

@@ -29,6 +29,7 @@
     "@coreui/angular": "^2.5.2",
     "@coreui/coreui": "^2.1.12",
     "@coreui/icons": "^0.3.0",
+    "@jamespotz/ckeditor5-build-with-base64-adapter": "^1.0.0",
     "@ng-bootstrap/ng-bootstrap": "^5.0.0",
     "@swimlane/ngx-datatable": "^15.0.2",
     "@types/lodash-es": "^4.17.3",

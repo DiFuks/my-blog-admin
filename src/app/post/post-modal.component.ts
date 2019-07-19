@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import * as ClassicEditor from '@jamespotz/ckeditor5-build-with-base64-adapter';
 
 import { Post } from '@app/post/interfaces/post';
 import { PostTypes } from '@app/post/enums/post-types';
