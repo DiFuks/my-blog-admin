@@ -79,12 +79,11 @@ export class PostComponent implements OnInit {
   showPosts() {
     this.postService.getList()
       .subscribe((posts: Array<Post>) => {
-        this.posts = cloneDeep(posts).map(post => {
-          post.createdAt = moment(post.createdAt).format('DD.MM.YYYY HH:mm');
-          post.updatedAt = moment(post.updatedAt).format('DD.MM.YYYY HH:mm');
-
-          return post;
-        });
+        this.posts = cloneDeep(posts).map(post => ({
+          ...post,
+          createdAt: moment(post.createdAt).format('DD.MM.YYYY HH:mm'),
+          updatedAt: moment(post.updatedAt).format('DD.MM.YYYY HH:mm'),
+        }));
       });
   }
 }

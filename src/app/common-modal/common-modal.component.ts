@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+
 import { CommonModalService } from '@app/common-modal/common-modal.service';
 
 @Component({
   selector: 'app-common-modal',
   templateUrl: './common-modal.component.html',
 })
-export class CommonModalComponent {
+export class CommonModalComponent implements OnInit {
   modalRef: NgbModalRef;
 
   @Input() title: string;
@@ -15,10 +16,10 @@ export class CommonModalComponent {
 
   constructor(
     private commonModalService: CommonModalService,
-  ) {
-    this.commonModalService.activeModalRef.subscribe((modalRef: NgbModalRef) => {
-      this.modalRef = modalRef;
-    });
+  ) {}
+
+  ngOnInit() {
+    this.modalRef = this.commonModalService.activeModalRef;
   }
 
   onSave() {

@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { Injectable } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class CommonModalService {
-  activeModalRef: BehaviorSubject<NgbModalRef> = new BehaviorSubject(null);
+  activeModalRef: NgbModalRef;
 
   save: Observable<object>;
 
@@ -16,24 +16,22 @@ export class CommonModalService {
   ) {}
 
   openModal<T>(content: any, data: T, save: Observable<object>) {
-    this.save = save;
-
-    const modal = this.modal.open(content, {
+    this.activeModalRef = this.modal.open(content, {
       size: 'lg',
       backdrop: 'static',
       windowClass: 'common-modal'
     });
 
-    modal.componentInstance.data = data;
+    this.activeModalRef.componentInstance.data = data;
 
-    this.activeModalRef.next(modal);
+    this.save = save;
   }
 
   onSave() {
     this.save.subscribe(() => {
       this.toastr.success('Save successful');
 
-      this.activeModalRef.getValue().close();
+      this.activeModalRef.close();
     }, (error: HttpErrorResponse) => {
       this.toastr.error(error.error.message || 'Unknown error');
     });
